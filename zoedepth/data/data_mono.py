@@ -33,6 +33,7 @@ import cv2
 import torch
 import torch.nn as nn
 import torch.utils.data.distributed
+from zoedepth.data.clearpose import get_clearpose_loader
 from zoedepth.utils.easydict import EasyDict as edict
 from PIL import Image, ImageOps
 from torch.utils.data import DataLoader, Dataset
@@ -124,7 +125,10 @@ class DepthDataLoader(object):
             self.data = get_ddad_loader(config.ddad_root, resize_shape=(
                 352, 1216), batch_size=1, num_workers=1)
             return
-
+        
+        if config.data == 'clp':
+            self.data = get_clearpose_loader(config.clp_root, batch_size=1, num_workers=1)
+            
         img_size = self.config.get("img_size", None)
         img_size = img_size if self.config.get(
             "do_input_resize", False) else None
