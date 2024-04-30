@@ -1,2 +1,2 @@
-micromamba create -n zz cudatoolkit python=3.9 hdf5 anaconda::opencv h5py matplotlib numpy scipy tqdm timm  anaconda::mesa-libgl-cos6-x86_64 
-pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117  wandb  huggingface-hub opencv-python-headless   
+micromamba create -n zz cudatoolkit python=3.9 hdf5 h5py matplotlib numpy scipy tqdm timm=0.6.7
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117  wandb=0.13.9  huggingface-hub=0.11.1 opencv-python-headless   
